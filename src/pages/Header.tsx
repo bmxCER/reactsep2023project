@@ -1,6 +1,9 @@
 import {NavLink} from "react-router-dom";
 import {useState} from "react";
+
 import {SearchBar} from "./SearchBar";
+import css from './Header.module.css'
+
 
 const Header = () => {
     const [searchBar, setSearchBar] = useState(false)
@@ -15,11 +18,11 @@ const Header = () => {
     }
 
     return (
-        <div>
+        <div className={css.HeaderCSS}>
             <NavLink to={'movies'}>Movies</NavLink>
             <NavLink to={'genres'}>Genres</NavLink>
             <NavLink to={'search'} onClick={showSearchBar}>Search</NavLink>
-            <button>Theme</button>
+            <NavLink to={'theme'}>Theme</NavLink>
 
             {searchBar && <SearchBar onSearch={handleSearch}/>}
 

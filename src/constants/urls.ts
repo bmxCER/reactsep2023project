@@ -1,6 +1,6 @@
-const baseURL = 'https://api.themoviedb.org/3';
+const baseURL = 'https://api.themoviedb.org/';
 
-const movies = '/discover/movie';
+const movies = '3/discover/movie';
 
 const urls = {
     movies: {

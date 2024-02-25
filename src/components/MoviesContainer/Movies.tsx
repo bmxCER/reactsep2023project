@@ -7,29 +7,32 @@ import { useSearchParams } from "react-router-dom";
 const Movies = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
     const [query, setQuery] = useSearchParams({ page: '1' });
-    const page: string|null = query.get('page');
+    const pageQueryParam: string | null = query.get('page');
+    const page: number = pageQueryParam ? parseInt(pageQueryParam) : 1;
 
     useEffect(() => {
+        setQuery({page: page.toString()})
         movieService.getAll(page).then(({ data }) => {
-            setMovies(data.results, page);
+            setMovies(data.results)
         });
-    }, [page, query]); // Added query to the dependency array
+    }, [page, query])
 
     const prev = () => {
         const prevPage = (+page! - 1).toString();
-        setQuery({ page: prevPage });
+        setQuery({ page: prevPage })
     }
 
     const next = () => {
         const nextPage = (+page! + 1).toString();
-        setQuery({ page: nextPage });
+        setQuery({ page: nextPage })
     }
 
     return (
         <div>
-            {movies.map(movie => <Movie key={movie.id} movie={movie} />)}
+            {movies.map((movie: IMovie) => <Movie key={movie.id} movie={movie} />)}
             <div>
-                <button disabled={!page || page === '1'} onClick={prev}>prev</button>
+                <button disabled={!page || page === 1} onClick={prev}>prev</button>
+                <button onClick={next}>next</button>
             </div>
         </div>
     );
