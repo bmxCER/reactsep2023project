@@ -1,0 +1,19 @@
+.HeaderCSS{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    background-color: blue;
+}
+
+.HeaderCSS a{
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    margin: 0 30px;
+}
+
+.HeaderCSS a[class='active']{
+    color: yellow;
+}
