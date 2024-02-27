@@ -1,5 +1,0 @@
-const posterService = {
-
-}
-
-export {posterService}

@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, {PropsWithChildren, useEffect, useState} from "react";
 import { movieService } from "../../services";
 import { Movie } from "./Movie";
-import { IMovie } from "../../interfaces";
+import {IMovie} from "../../interfaces";
 import { useSearchParams } from "react-router-dom";
+
 
 const Movies = () => {
     const [movies, setMovies] = useState<IMovie[]>([]);
@@ -11,20 +12,20 @@ const Movies = () => {
     const page: number = pageQueryParam ? parseInt(pageQueryParam) : 1;
 
     useEffect(() => {
-        setQuery({page: page.toString()})
+        setQuery({ page: page.toString() });
         movieService.getAll(page).then(({ data }) => {
-            setMovies(data.results)
+            setMovies(data.results);
         });
-    }, [page, query])
+    }, [page, setQuery]);
 
     const prev = () => {
-        const prevPage = (+page! - 1).toString();
-        setQuery({ page: prevPage })
+        const prevPage = Math.max(page - 1, 1).toString();
+        setQuery({ page: prevPage });
     }
 
     const next = () => {
-        const nextPage = (+page! + 1).toString();
-        setQuery({ page: nextPage })
+        const nextPage = (page + 1).toString();
+        setQuery({ page: nextPage });
     }
 
     return (

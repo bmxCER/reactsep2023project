@@ -1,2 +1,2 @@
 export * from './movieInterface'
-export * from './moviepropsInterface'
+export * from './movieDetailsInterface'
