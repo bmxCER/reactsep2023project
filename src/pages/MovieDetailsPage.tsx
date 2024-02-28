@@ -1,13 +1,14 @@
-import {useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 
 import {MovieDetails} from "../components/MoviesContainer";
-import {IMovieDetails} from "../interfaces";
 import {useParams} from "react-router-dom";
 import {movieDetailsService} from "../services";
+import {IMovieDetails} from "../interfaces";
 
 
-const MovieDetailsPage = () => {
-    const [movieDetails, setMovieDetails] = useState<IMovieDetails | null>(null)
+
+const MovieDetailsPage: FC = () => {
+    const [movieDetails, setMovieDetails] = useState<IMovieDetails>(null)
     const {id} = useParams()
 
     useEffect(() => {

@@ -14,7 +14,8 @@ const Movie: FC<IMovieProps> = ({movie}) => {
     const  navigate = useNavigate()
 
     const toMovieDetails = () => {
-        navigate(id.toString(), {state:{movie}})
+        navigate(`/movie/${id}`, {state:{movie}})
+
     }
 
     return (

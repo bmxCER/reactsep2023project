@@ -3,7 +3,7 @@ import {IMovie} from "./movieInterface";
 export interface IMovieDetails extends IMovie{
     movieDetails: {
         id: number,
-        genres: number | string [],
+        genres_ids: number[],
         overview: string,
         title: string,
         vote_average: number,

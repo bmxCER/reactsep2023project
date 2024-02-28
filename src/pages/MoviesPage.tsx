@@ -1,10 +1,11 @@
 
 import {Movies} from "../components/MoviesContainer";
 
+
 const MoviesPage = () => {
     return (
         <div>
-            <Movies/>
+            <Movies page={1} results={[]}/>
         </div>
     );
 };

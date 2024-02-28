@@ -12,9 +12,7 @@ const router= createBrowserRouter([
                 index: true, element: <Navigate to={'movies'}/>
             },
             {
-                path:'movies', element:<MoviesPage/>, children: [
-
-                ]
+                path:'movies', element:<MoviesPage/>
             },
             {
                 path: 'movie/:id', element:<MovieDetailsPage/>
