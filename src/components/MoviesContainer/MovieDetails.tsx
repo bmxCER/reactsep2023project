@@ -1,6 +1,8 @@
 import React, {FC} from "react";
 import {IMovieDetails} from "../../interfaces";
 
+
+
 interface IProps{
     movieDetails: IMovieDetails
 }
@@ -8,6 +10,7 @@ interface IProps{
 const MovieDetails: FC<IProps> = ({movieDetails}) => {
     const {id, genres_ids, overview, title, vote_average, poster_path} = movieDetails
     const poster = `https://image.tmdb.org/t/p/w500${poster_path}`
+
     return (
         <div>
             <div>id: {id}</div>
