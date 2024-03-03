@@ -1,0 +1,36 @@
+.title {
+    align-items: center;
+    text-align: center;
+    font-size: 30px;
+    margin: 20px;
+}
+.main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px;
+}
+.text{
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    font-size: 20px;
+}
+
+.backButton {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 20px 100px;
+    border-radius: 8px;
+}
+.genres{
+    text-decoration: none;
+    color: black;
+    justify-content: space-around;
+    margin: 0 20px;
+}
