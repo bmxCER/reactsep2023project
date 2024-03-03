@@ -1,6 +1,9 @@
 export interface IStars{
-    numStars: number,
-    initialRating: number,
-    readonly: boolean,
+    rating: number,
+    numberOfStars: number,
+    starRatedColor: string,
+    starEmptyColor: string,
+    starDimension: string,
+    starSpacing: string
 
 }

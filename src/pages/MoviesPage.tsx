@@ -1,5 +1,4 @@
-
-import {Movies} from "../components/MoviesContainer";
+import {Movies} from "../components";
 
 
 const MoviesPage = () => {

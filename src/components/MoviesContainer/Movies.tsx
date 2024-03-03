@@ -1,8 +1,11 @@
 import React, {FC, useEffect, useState} from "react";
-import { movieService } from "../../services";
-import { Movie } from "./Movie";
 import {IApiResponse, IMovie} from "../../interfaces";
 import { useSearchParams } from "react-router-dom";
+
+import { movieService } from "../../services";
+import { Movie } from "./Movie";
+import css from './Movies.module.css'
+
 
 
 const Movies: FC<IApiResponse> = () => {
@@ -31,10 +34,13 @@ const Movies: FC<IApiResponse> = () => {
 
     return (
         <div>
-            {movies.map((movie: IMovie) => <Movie key={movie.id} movie={movie} />)}
-            <div>
-                <button disabled={!page || page === 1} onClick={prev}>prev</button>
-                <button onClick={next}>next</button>
+            <div className={css.Movies}>
+                {movies.map((movie: IMovie) => <Movie key={movie.id} movie={movie} />)}
+            </div>
+            <div className={css.buttons}>
+                <button disabled={!page || page === 1} onClick={prev} className={css.button}>prev</button>
+                <div className={css.page}>{page}</div>
+                <button onClick={next} className={css.button}>next</button>
             </div>
         </div>
     );

@@ -1,13 +1,14 @@
-import {IMovie} from "./movieInterface";
 
-export interface IMovieDetails extends IMovie{
 
+export interface IMovieDetails{
         id: number,
-        genres_ids: number[],
+        genres:[
+            id: number,
+            namme: string
+        ],
         overview: string,
         title: string,
         vote_average: number,
         poster_path: string
-
 
 }

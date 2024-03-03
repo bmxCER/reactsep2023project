@@ -1,10 +1,14 @@
 import {createBrowserRouter, Navigate} from "react-router-dom";
 
 import {MainLayout} from "./layouts/MainLayout";
-import {MovieDetailsPage, MoviesPage} from "./pages";
-import {movieDetailsService} from "./services";
+import {GenresPage, MovieDetailsPage, MoviesPage} from "./pages";
+import {genresService, movieDetailsService} from "./services";
 import {IMovieDetails} from "./interfaces";
 import {AxiosResponse} from "axios";
+import {SearchMoviePage} from "./pages/SearchMoviePage";
+import {searchService} from "./services/searchService";
+
+
 
 
 
@@ -22,6 +26,27 @@ const router= createBrowserRouter([
                     const parseId = parseInt(id)
                     const response: AxiosResponse<IMovieDetails> = await movieDetailsService.getById(parseId);
                     return response.data;
+                }
+            },
+            {
+                path: 'search/keyword/:query',
+                element: <SearchMoviePage />,
+                loader: async ({ params: { query } }) => {
+                    const search = await searchService.getAll(query);
+                    return search.data;
+                }
+            },
+            {
+                path: 'genres/:genresId',
+                element: <GenresPage />,
+                loader: async ({ params: { genresId } }) => {
+                    const parseGenreId = parseInt(genresId);
+                    if (!isNaN(parseGenreId)) {
+                        const genres = await genresService.getAll(parseGenreId);
+                        return genres.data;
+                    } else {
+                        return null;
+                    }
                 }
             }
         ]}

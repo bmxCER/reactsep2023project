@@ -1,8 +1,9 @@
 import {useLoaderData} from "react-router-dom";
 import {FC} from "react";
 
-import {MovieDetails} from "../components/MoviesContainer";
+
 import {IMovieDetails} from "../interfaces";
+import {MovieDetails} from "../components";
 
 
 const MovieDetailsPage: FC = () => {

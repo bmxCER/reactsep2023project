@@ -2,6 +2,7 @@ import {FC, PropsWithChildren} from "react";
 
 import {NavLink} from "react-router-dom";
 import {IMovie} from "../../interfaces";
+import css from './Movie.module.css'
 
 interface IMovieProps extends PropsWithChildren {
     movie: IMovie
@@ -13,11 +14,13 @@ const Movie: FC<IMovieProps> = ({movie}) => {
 
 
     return (
-        <NavLink to={`/movie/${id}`}>
-            <img src={`${poster}`} alt={`${title}`}/>
-            <div>id: {id}</div>
-            <div>title: {title}</div>
-        </NavLink>
+        <div className={css.Movie}>
+            <NavLink to={`/movie/${id}`} className={css.title}>
+                <img src={`${poster}`} alt={`${title}`}/>
+                <div>{title}</div>
+            </NavLink>
+        </div>
+
     );
 };
 
